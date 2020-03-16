@@ -1,9 +1,9 @@
-![alt text](https://raw.githubusercontent.com/hifiaz/covid19/master/lib/images/icon.png | width=50)
+<img src="https://raw.githubusercontent.com/hifiaz/covid19/master//lib/images/icon.png " width="50">
 # covid19
 
 Monitoring Covid.
 
-![alt text](https://raw.githubusercontent.com/hifiaz/covid19/master/flutter_01.png | width=100)
+<img src="https://raw.githubusercontent.com/hifiaz/covid19/master/flutter_01.png" width="100">
 
 ## Resource
 
