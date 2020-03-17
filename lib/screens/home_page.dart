@@ -1,8 +1,10 @@
 import 'package:covid19/providers/country_provider.dart';
 import 'package:covid19/providers/daily_provider.dart';
+import 'package:covid19/providers/history_provider.dart';
 import 'package:covid19/providers/home_provider.dart';
 import 'package:covid19/providers/province_provider.dart';
 import 'package:covid19/screens/about_page.dart';
+import 'package:covid19/screens/history_page.dart';
 import 'package:covid19/utilities/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -28,6 +30,7 @@ class _HomePageState extends State<HomePage> {
     });
     Provider.of<HomeProvider>(context, listen: false).getHomeProvider();
     Provider.of<CountryProvider>(context, listen: false).getCountryProvider();
+    Provider.of<HistoryProvider>(context, listen: false).getHistory();
     Provider.of<DailyProvider>(context, listen: false)
         .getDailyProvider(datetime);
     Provider.of<ProvinceProvider>(context, listen: false)
@@ -133,6 +136,22 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
+              ),
+              ListTile(
+                title: Text('History Corona', style: AppStyle.stdtw),
+                subtitle: Text('Riwayat kasus corona di indonesia',
+                    style: AppStyle.stdtr),
+                trailing: Icon(
+                  Icons.keyboard_arrow_right,
+                  color: AppStyle.txw,
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => HistoryPage()),
+                  );
+                },
               ),
               Divider(color: AppStyle.txw),
               ListTile(

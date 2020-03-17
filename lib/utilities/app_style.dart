@@ -13,6 +13,7 @@ class AppStyle {
     fontWeight: FontWeight.bold,
   );
   static TextStyle stdtw = TextStyle(color: AppStyle.txw);
+  static TextStyle stdtr = TextStyle(color: AppStyle.txr);
   static TextStyle stdtb = TextStyle(fontWeight: FontWeight.bold);
 
   static EdgeInsets pv10 = EdgeInsets.symmetric(vertical: 10.0);
