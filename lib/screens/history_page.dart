@@ -37,7 +37,7 @@ class HistoryPage extends StatelessWidget {
                                 ListTile(
                                   contentPadding: EdgeInsets.all(0),
                                   title: Text(
-                                      '${val.kasus} ${val.klaster},${val.wn}',
+                                      '${val.kasus} ${val.provinsi},${val.wn}',
                                       style: AppStyle.stdtw),
                                   subtitle: Text(val.rs, style: AppStyle.stdtr),
                                   trailing: Text(
