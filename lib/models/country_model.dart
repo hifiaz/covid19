@@ -10,21 +10,41 @@ CountryModel countryModelFromJson(String str) => CountryModel.fromMap(json.decod
 String countryModelToJson(CountryModel data) => json.encode(data.toMap());
 
 class CountryModel {
-    Map<String, String> countries;
-    Map<String, String> iso3;
+    List<Country> countries;
 
     CountryModel({
         @required this.countries,
-        @required this.iso3,
     });
 
     factory CountryModel.fromMap(Map<String, dynamic> json) => CountryModel(
-        countries: json["countries"] == null ? null : Map.from(json["countries"]).map((k, v) => MapEntry<String, String>(k, v)),
-        iso3: json["iso3"] == null ? null : Map.from(json["iso3"]).map((k, v) => MapEntry<String, String>(k, v)),
+        countries: json["countries"] == null ? null : List<Country>.from(json["countries"].map((x) => Country.fromMap(x))),
     );
 
     Map<String, dynamic> toMap() => {
-        "countries": countries == null ? null : Map.from(countries).map((k, v) => MapEntry<String, dynamic>(k, v)),
-        "iso3": iso3 == null ? null : Map.from(iso3).map((k, v) => MapEntry<String, dynamic>(k, v)),
+        "countries": countries == null ? null : List<dynamic>.from(countries.map((x) => x.toMap())),
+    };
+}
+
+class Country {
+    String name;
+    String iso2;
+    String iso3;
+
+    Country({
+        @required this.name,
+        @required this.iso2,
+        @required this.iso3,
+    });
+
+    factory Country.fromMap(Map<String, dynamic> json) => Country(
+        name: json["name"] == null ? null : json["name"],
+        iso2: json["iso2"] == null ? null : json["iso2"],
+        iso3: json["iso3"] == null ? null : json["iso3"],
+    );
+
+    Map<String, dynamic> toMap() => {
+        "name": name == null ? null : name,
+        "iso2": iso2 == null ? null : iso2,
+        "iso3": iso3 == null ? null : iso3,
     };
 }

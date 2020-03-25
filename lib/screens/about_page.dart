@@ -35,6 +35,16 @@ class AboutPage extends StatelessWidget {
             ),
             Card(
               child: ListTile(
+                title: Text('Louis Lugas'),
+                subtitle: Text('Data History'),
+                trailing: Icon(Icons.keyboard_arrow_right),
+                onTap: () {
+                  _launchURL('https://twitter.com/handjobservice');
+                },
+              ),
+            ),
+            Card(
+              child: ListTile(
                 title: Text('Hifiaz'),
                 subtitle: Text('Creator'),
                 trailing: Icon(Icons.keyboard_arrow_right),

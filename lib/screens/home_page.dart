@@ -98,35 +98,32 @@ class _HomePageState extends State<HomePage> {
                         child: Theme(
                           data: ThemeData(canvasColor: AppStyle.bgl),
                           child: DropdownButton(
-                            isExpanded: true,
-                            hint: Text(
-                              'Please choose a location',
-                              style: TextStyle(color: AppStyle.txg),
-                            ),
-                            value: _selectedLocation,
-                            onChanged: (newValue) {
-                              print(newValue);
-                              setState(() {
-                                _selectedLocation = newValue;
-                              });
-                              Provider.of<ProvinceProvider>(context,
-                                      listen: false)
-                                  .getProviceProvider(newValue);
-                            },
-                            items: country.countries.entries
-                                .map<DropdownMenuItem<String>>(
-                                    (MapEntry<String, String> e) =>
-                                        DropdownMenuItem<String>(
-                                          value: e.value,
-                                          child: Text(
-                                            e.key,
-                                            style: TextStyle(
-                                              color: AppStyle.txg,
-                                            ),
+                              isExpanded: true,
+                              hint: Text(
+                                'Please choose a location',
+                                style: TextStyle(color: AppStyle.txg),
+                              ),
+                              value: _selectedLocation,
+                              onChanged: (newValue) {
+                                print(newValue);
+                                setState(() {
+                                  _selectedLocation = newValue;
+                                });
+                                Provider.of<ProvinceProvider>(context,
+                                        listen: false)
+                                    .getProviceProvider(newValue);
+                              },
+                              items: country.countries
+                                  .map((val) => DropdownMenuItem(
+                                        value: val.iso2,
+                                        child: Text(
+                                          val.name,
+                                          style: TextStyle(
+                                            color: AppStyle.txg,
                                           ),
-                                        ))
-                                .toList(),
-                          ),
+                                        ),
+                                      ))
+                                  .toList()),
                         ),
                       ),
                     confirmDetail(
